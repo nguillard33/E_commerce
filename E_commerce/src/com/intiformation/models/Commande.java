@@ -4,14 +4,15 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +21,7 @@ public class Commande {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_com")
 	private int idCommande;	
 	private Date dateCommande;
 	
@@ -28,8 +30,8 @@ public class Commande {
 	@OneToMany(mappedBy="c",cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	private List<LigneCommande> c_lc;
 	
-	@ManyToOne
-	@JoinColumn(name="commande_client",referencedColumnName="idClient")
+	@OneToOne
+	@JoinColumn(name="com_client",referencedColumnName="id_client")
 	private Client client;
 	
 	
