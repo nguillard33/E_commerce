@@ -14,23 +14,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="commande")
+@Entity
+@Table(name="commande")
 public class Commande {
 
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idCommande;	
 	private Date dateCommande;
 	
 	
 	/*transformation association uml en java*/
-//	@OneToMany(mappedBy="c",cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
-//	private List<LigneCommande> c_lc;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="commande_client",referencedColumnName="idClient")
-//	private Client client;
+	@OneToMany(mappedBy="c",cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	private List<LigneCommande> c_lc;
+	
+	@ManyToOne
+	@JoinColumn(name="commande_client",referencedColumnName="idClient")
+	private Client client;
 	
 	
 	//constructeurs

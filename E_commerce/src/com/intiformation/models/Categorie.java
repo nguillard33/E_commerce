@@ -3,6 +3,7 @@ package com.intiformation.models;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,16 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="categories")
+@Entity
+@Table(name="categories")
 public class Categorie  {
 
-	
-	
-//
-	
-	//@Id
-//	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="id_cat")
 	private Long  idCategorie;
 	private String nomCategorie;
 	private byte photo;
@@ -28,8 +26,9 @@ public class Categorie  {
 
 	
 	/*transfo association uml en java*/
-//	@OneToMany(mappedBy="categorie", cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
-//	private List<Produit> prods;
+	//fetch =fetchType.eager: chargement liste prods en mm temps qu'une catégorie;cascade: propagation opération sur les classes esclaves sur les classes maitres
+	@OneToMany(mappedBy="categorie", cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	private List<Produit> prods;
 	
 	
 	//constructeurs : 

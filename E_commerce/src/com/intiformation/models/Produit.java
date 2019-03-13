@@ -8,12 +8,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="produits")
+@Entity
+@Table(name="produits")
 public class Produit {
 	
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idProduit;
 	
 	private String designation;
@@ -25,13 +25,14 @@ public class Produit {
 	
 	
 	/*transformation association uml en java*/
-//	@ManyToOne
-//	@JoinColumn(name="categorie_p", referencedColumnName="idCategorie" )
-//	private Categorie categorie;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="lc_p",referencedColumnName="id_lc")
-//	private LigneCommande lc;
+	@ManyToOne
+	@JoinColumn(name="cat_id", referencedColumnName="id_cat" )
+	private Categorie categorie;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="lc_p",referencedColumnName="id_lc")
+	private LigneCommande lc;
 	
 	public Produit() {
 		super();

@@ -13,13 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="ligneCommande")
+@Entity
+@Table(name="ligneCommande")
 public class LigneCommande {
 
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
-//	private int id_lc;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id_lc;
 	
 	private int quantite;
 	private int prix;
@@ -27,12 +27,12 @@ public class LigneCommande {
 	
 	
 	/*transfo association uml en java*/
-//	@OneToMany(mappedBy="lc",cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
-//	private List<Produit> prods;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="c_lc",referencedColumnName="id_c")
-//	private Commande c;
+	@OneToMany(mappedBy="lc",cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	private List<Produit> prods;
+	
+	@ManyToOne
+	@JoinColumn(name="c_lc",referencedColumnName="id_c")
+	private Commande c;
 	
 	
 	//constructeurs

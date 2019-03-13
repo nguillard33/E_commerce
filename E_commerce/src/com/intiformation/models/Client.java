@@ -7,14 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="clients")
+@Entity
+@Table(name="clients")
 public class Client {
 
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idClient;
 	
 	private String nomClient;
@@ -24,7 +25,9 @@ public class Client {
 
 	
 	/*transformation association uml en java*/
-	//@OneToMany(mappedBy="client",cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER})
+	@OneToOne(mappedBy="",cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	private Commande commande;
+	
 	
 	//constructeurs
 	public Client() {
