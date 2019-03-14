@@ -24,8 +24,9 @@ public class Categorie  {
 	private Long  idCategorie;
 	private String nomCategorie;
 	@Lob
-	@Transient
 	private byte photo;
+	@Transient 
+	private String img;
 	private String description;
 
 	
@@ -36,25 +37,28 @@ public class Categorie  {
 	
 	
 	//constructeurs : 
-	
+
+
 	public Categorie() {
 		super();
 	}
 
 
-	public Categorie(String nomCategorie, byte photo, String description) {
+	public Categorie(String nomCategorie, byte photo, String img, String description) {
 		super();
 		this.nomCategorie = nomCategorie;
 		this.photo = photo;
+		this.img = img;
 		this.description = description;
 	}
 
 
-	public Categorie(Long idCategorie, String nomCategorie, byte photo, String description) {
+	public Categorie(Long idCategorie, String nomCategorie, byte photo, String img, String description) {
 		super();
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
 		this.photo = photo;
+		this.img = img;
 		this.description = description;
 	}
 
@@ -100,7 +104,14 @@ public class Categorie  {
 		this.description = description;
 	}
 	
-	
+	public String getImg() {
+		return img;
+	}
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
 	
 	
 	

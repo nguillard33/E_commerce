@@ -24,8 +24,9 @@ public class Produit {
 	private int quantite;
 	private boolean selectionnee;
 	@Lob
+	private byte photo;
 	@Transient
-	private String photo;
+	private String img;
 	
 	
 	/*transformation association uml en java*/
@@ -44,7 +45,7 @@ public class Produit {
 
 
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionnee,
-			String photo) {
+			byte photo, String img) {
 		super();
 		this.designation = designation;
 		this.description = description;
@@ -52,11 +53,12 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionnee = selectionnee;
 		this.photo = photo;
+		this.img = img;
 	}
 
 
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionnee, String photo) {
+			boolean selectionnee, byte photo, String img) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -65,6 +67,7 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionnee = selectionnee;
 		this.photo = photo;
+		this.img = img;
 	}
 
 
@@ -128,15 +131,24 @@ public class Produit {
 	}
 
 
-	public String getPhoto() {
+	public byte getPhoto() {
 		return photo;
 	}
 
 
-	public void setPhoto(String photo) {
+	public void setPhoto(byte photo) {
 		this.photo = photo;
 	}
-	
+
+
+	public String getImg() {
+		return img;
+	}
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
 	
 	
 	
