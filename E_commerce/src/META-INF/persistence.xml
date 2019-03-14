@@ -9,7 +9,12 @@
 		<jta-data-source>java:/ecommerce1</jta-data-source>
 
 		<!-- Enumerer les classes persistantes -->
-
+		<class>com.intiformation.models.AdminUser</class>
+		<class>com.intiformation.models.Categorie</class>
+		<class>com.intiformation.models.Produit</class>
+		<class>com.intiformation.models.Commande</class>
+		<class>com.intiformation.models.Client</class>
+		<class>com.intiformation.models.LigneCommande</class>
 
 		<!-- Spécifier les propriétés de hibernate -->
 		<properties>

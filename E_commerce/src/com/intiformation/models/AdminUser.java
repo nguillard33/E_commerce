@@ -1,10 +1,13 @@
 package com.intiformation.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,11 @@ public class AdminUser {
 	private int idAdmin;
 	private String adminUsername;
 	private String adminMdp;
+
+	
+	//Association adminuser - produit
+	@OneToMany(mappedBy="adminUser")
+	private List<Produit> produits;
 	
 	//constructeurs
 	public AdminUser() {
@@ -55,6 +63,12 @@ public class AdminUser {
 		this.adminMdp = adminMdp;
 	}
 	
+	public List<Produit> getProduits() {
+		return produits;
+	}
+	public void setProduits(List<Produit> produits) {
+		this.produits = produits;
+	}
 	//ToString
 	@Override
 	public String toString() {

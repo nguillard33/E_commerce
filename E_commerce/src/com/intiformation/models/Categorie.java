@@ -112,6 +112,16 @@ public class Categorie  {
 	public void setImg(String img) {
 		this.img = img;
 	}
+
+
+	public List<Produit> getProds() {
+		return prods;
+	}
+
+
+	public void setProds(List<Produit> prods) {
+		this.prods = prods;
+	}
 	
 	
 	

@@ -39,6 +39,11 @@ public class Produit {
 	@JoinColumn(name="lc_p",referencedColumnName="id_lc")
 	private LigneCommande lc;
 	
+	//association produit-admin
+	@ManyToOne
+	@JoinColumn(name="adm_id", referencedColumnName="id_adm")
+	private AdminUser adminUser;
+	
 	public Produit() {
 		super();
 	}
@@ -148,6 +153,36 @@ public class Produit {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+
+
+	public LigneCommande getLc() {
+		return lc;
+	}
+
+
+	public void setLc(LigneCommande lc) {
+		this.lc = lc;
+	}
+
+
+	public AdminUser getAdminUser() {
+		return adminUser;
+	}
+
+
+	public void setAdminUser(AdminUser adminUser) {
+		this.adminUser = adminUser;
 	}
 	
 	
