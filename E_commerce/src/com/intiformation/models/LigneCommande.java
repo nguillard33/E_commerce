@@ -27,11 +27,13 @@ public class LigneCommande {
 	
 	
 	/*transfo association uml en java*/
+	/*association avec produit*/
 	@OneToMany(mappedBy="lc",cascade={CascadeType.REMOVE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	private List<Produit> prods;
 	
+	/*association avec commande*/
 	@ManyToOne
-	@JoinColumn(name="c_lc",referencedColumnName="id_c")
+	@JoinColumn(name="c_lc",referencedColumnName="id_com")
 	private Commande c;
 	
 	
