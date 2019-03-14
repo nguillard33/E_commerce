@@ -1,8 +1,20 @@
 package com.intiformation.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="adminusers")
 public class AdminUser {
 	
 	//attributs
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_adm")
 	private int idAdmin;
 	private String adminUsername;
 	private String adminMdp;
