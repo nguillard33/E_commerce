@@ -21,7 +21,7 @@ public class Categorie  {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="id_cat")
-	private Long  idCategorie;
+	private int  idCategorie;
 	private String nomCategorie;
 	@Lob
 	private byte photo;
@@ -53,7 +53,7 @@ public class Categorie  {
 	}
 
 
-	public Categorie(Long idCategorie, String nomCategorie, byte photo, String img, String description) {
+	public Categorie(int idCategorie, String nomCategorie, byte photo, String img, String description) {
 		super();
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
@@ -65,12 +65,12 @@ public class Categorie  {
 
 	
 	//getters et setters 
-	public Long getIdCategorie() {
+	public int getIdCategorie() {
 		return idCategorie;
 	}
 
 
-	public void setIdCategorie(Long idCategorie) {
+	public void setIdCategorie(int idCategorie) {
 		this.idCategorie = idCategorie;
 	}
 

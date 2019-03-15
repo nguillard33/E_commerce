@@ -13,7 +13,7 @@ public interface ICategorieService {
 	
 	public int updateCategorieService(Categorie cat);
 	
-	public List<Categorie> getAllCategorieService(AdminUser admU);
+	public List<Categorie> getAllCategorieService();
 	
 	public Categorie getCategorieByIdService(Categorie cat);
 

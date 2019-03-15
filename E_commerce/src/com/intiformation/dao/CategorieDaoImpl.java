@@ -5,8 +5,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-import com.intiformation.models.AdminUser;
 import com.intiformation.models.Categorie;
 
 @Stateless
@@ -25,26 +25,40 @@ public class CategorieDaoImpl implements ICategorieDao{
 
 	@Override
 	public int supprCategorieDao(Categorie cat) {
-		// TODO Auto-generated method stub
-		return 0;
+		//requete JPQL pour supprimer un element
+		Query req = em.createQuery("DELETE FROM Categorie as c WHERE c.idCategorie=:pId");
+		//passage des paramètres
+		req.setParameter("pId", cat.getIdCategorie());
+		int verif = req.executeUpdate();
+		return verif;
 	}
 
 	@Override
 	public int updateCategorieDao(Categorie cat) {
-		// TODO Auto-generated method stub
-		return 0;
+		//requete JPQL pour executer l'update
+		Query req = em.createQuery("UPDATE Categorie as c SET c.nomCategorie=:pNom, cphoto=:pPhoto, c.description=:pDescription WHERE c.idCategorie=:pId");
+		//passage des params
+		req.setParameter("pNom", cat.getNomCategorie());
+		req.setParameter("pPhoto", cat.getPhoto());
+		req.setParameter("pDescription", cat.getDescription());
+		req.setParameter("pId", cat.getIdCategorie());
+		int verif = req.executeUpdate();
+		return verif;
 	}
 
 	@Override
-	public List<Categorie> getAllCategorieDao(AdminUser admU) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Categorie> getAllCategorieDao() {
+		//Requete JPQL
+		String reqJPQLliste = "SELECT c FROM Categorie as c";
+		//Créer la query
+		Query queryListe = em.createQuery(reqJPQLliste);
+		return queryListe.getResultList();		
 	}
 
 	@Override
 	public Categorie getCategorieByIdDao(Categorie cat) {
-		// TODO Auto-generated method stub
-		return null;
+		//Requete JPA
+		return em.find(Categorie.class, cat.getIdCategorie());
 	}
 
 }

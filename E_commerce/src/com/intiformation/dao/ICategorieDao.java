@@ -13,7 +13,7 @@ public interface ICategorieDao {
 	
 	public int updateCategorieDao(Categorie cat);
 	
-	public List<Categorie> getAllCategorieDao(AdminUser admU);
+	public List<Categorie> getAllCategorieDao();
 	
 	public Categorie getCategorieByIdDao(Categorie cat);
 
